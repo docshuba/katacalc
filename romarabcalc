@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -16,8 +17,7 @@ public class Main {
         String value1 = (str.substring(0, index1));
         String value2 = (str.substring(index2 + 1, strLength));
 
-
-        if (StringUtils.isNumeric(value1) && StringUtils.isNumeric(value2)) {
+        if ((StringUtils.isNumeric(value1) && StringUtils.isNumeric(value2)) && strLength <= 7) {
             var num1 = Integer.parseInt(value1);
             var num2 = Integer.parseInt(value2);
             if ((num1 >= 1 && num1 <= 10) && (num2 >= 1 && num2 <= 10)) {
@@ -36,7 +36,7 @@ public class Main {
                 System.out.println("throws Exception");
             }
 
-        } else if (!StringUtils.isNumeric(value1) && !StringUtils.isNumeric(value2)) {
+        } else if ((!StringUtils.isNumeric(value1) && !StringUtils.isNumeric(value2)) && strLength <= 11 ) {
 
             var num1 = valueToNumber(value1);
             var num2 = valueToNumber(value2);
@@ -58,6 +58,7 @@ public class Main {
         } else {
             System.out.println("throws Exception");
         }
+
 
     }
 
@@ -85,13 +86,13 @@ public class Main {
                 return 10;
             }
         } catch (InputMismatchException e) {
-            throw new InputMismatchException("Неверный формат данных");
+            throw new InputMismatchException("throws Exception");
         }
         return -1;
     }
 
     private static String convertNumToRoman (int numArabian) {
-        String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+        String[] roman = {"throws Exception", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
                 "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
                 "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
