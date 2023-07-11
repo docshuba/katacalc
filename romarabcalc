@@ -1,11 +1,9 @@
-
 import java.util.Scanner;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import java.util.InputMismatchException;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
@@ -13,7 +11,6 @@ public class Main {
         int index2 = str.lastIndexOf(" ");
         var strLength = str.length();
         var sign = str.substring(index1 + 1, index2).charAt(0);
-
         String value1 = (str.substring(0, index1));
         String value2 = (str.substring(index2 + 1, strLength));
 
@@ -30,14 +27,12 @@ public class Main {
                 } else if (sign == '/') {
                     System.out.println(num1 / num2);
                 } else {
-                    System.out.println("throws Exception");
+                    throw new RuntimeException("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
                 }
             } else {
-                System.out.println("throws Exception");
+                throw new RuntimeException("throws Exception //т.к. число больше 10 или меньше 1");
             }
-
         } else if ((!StringUtils.isNumeric(value1) && !StringUtils.isNumeric(value2)) && strLength <= 11 ) {
-
             var num1 = valueToNumber(value1);
             var num2 = valueToNumber(value2);
             if ((num1 >= 1 && num1 <= 10) && (num2 >= 1 && num2 <= 10)) {
@@ -50,18 +45,15 @@ public class Main {
                 } else if (sign == '/') {
                     System.out.println(convertNumToRoman(num1 / num2));
                 } else {
-                    System.out.println("throws Exception");
+                    throw new RuntimeException("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
                 }
             } else {
-                System.out.println("throws Exception");
+                throw new RuntimeException("throws Exception //т.к. число больше 10 или меньше 1");
             }
         } else {
-            System.out.println("throws Exception");
+            throw new RuntimeException("throws Exception //т.к. используются одновременно разные системы счисления");
         }
-
-
     }
-
     private static int valueToNumber (String roman) {
         try {
             if (roman.equals("I")) {
@@ -86,11 +78,10 @@ public class Main {
                 return 10;
             }
         } catch (InputMismatchException e) {
-            throw new InputMismatchException("throws Exception");
+            throw new InputMismatchException("т.к. число больше 10 или меньше 1");
         }
         return -1;
     }
-
     private static String convertNumToRoman (int numArabian) {
         String[] roman = {"throws Exception", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
@@ -103,5 +94,4 @@ public class Main {
         final String s = roman[numArabian];
         return s;
     }
-
 }
