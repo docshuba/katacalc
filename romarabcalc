@@ -18,20 +18,20 @@ public class Main {
         var sign = input.substring(index1 + 1, index2).charAt(0);
         String value1 = (input.substring(0, index1));
         String value2 = (input.substring(index2 + 1, strLength));
-        int result;
+        String result;
 
         if ((StringUtils.isNumeric(value1) && StringUtils.isNumeric(value2)) && strLength <= 7) {
             var num1 = Integer.parseInt(value1);
             var num2 = Integer.parseInt(value2);
             if ((num1 >= 1 && num1 <= 10) && (num2 >= 1 && num2 <= 10)) {
                 if (sign == '+') {
-                    result = num1 + num2;
+                    result = String.valueOf(num1 + num2);
                 } else if (sign == '-') {
-                    result = (num1 - num2);
+                    result = String.valueOf((num1 - num2));
                 } else if (sign == '*') {
-                    result = (num1 * num2);
+                    result = String.valueOf((num1 * num2));
                 } else if (sign == '/') {
-                    result = (num1 / num2);
+                    result = String.valueOf((num1 / num2));
                 } else {
                     throw new RuntimeException("throws Exception");
                 }
@@ -43,13 +43,13 @@ public class Main {
             var num2 = valueToNumber(value2);
             if ((num1 >= 1 && num1 <= 10) && (num2 >= 1 && num2 <= 10)) {
                 if (sign == '+') {
-                    result = Integer.parseInt((convertNumToRoman(num1 + num2)));
+                    result = (convertNumToRoman(num1 + num2));
                 } else if (sign == '-') {
-                    result = Integer.parseInt((convertNumToRoman(num1 - num2)));
+                    result = (convertNumToRoman(num1 - num2));
                 } else if (sign == '*') {
-                    result = Integer.parseInt((convertNumToRoman(num1 * num2)));
+                    result = (convertNumToRoman(num1 * num2));
                 } else if (sign == '/') {
-                    result = Integer.parseInt((convertNumToRoman(num1 / num2)));
+                    result = (convertNumToRoman(num1 / num2));
                 } else {
                     throw new RuntimeException("throws Exception");
                 }
